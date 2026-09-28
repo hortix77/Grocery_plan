@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<form method="post" class="form-card">
+    {% csrf_token %}
+    <h3>Checkout</h3>
+    <textarea name="address" class="form-control" placeholder="Delivery Address" required></textarea>
+    <h4>Total: ₹ {{total}}</h4>
+    <a href="{% url 'payment' %}" class="btn btn-success w-100">
+    Proceed to Payment
+</a>
+
+
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center">📊 Admin Dashboard</h2>
+
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="card bg-primary text-white p-3">
+      <h4>Total Products</h4>
+      <h2>{{products}}</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-success text-white p-3">
+      <h4>Total Orders</h4>
+      <h2>{{orders}}</h2>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-warning text-dark p-3">
+      <h4>Total Sales</h4>
+      <h2>₹ {{sales}}</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}

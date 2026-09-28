@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-card text-center">
+    <h3>💳 Secure Payment</h3>
+    <h4 class="text-success">Total Amount: ₹ {{total}}</h4>
+
+    <button id="rzp-button" class="btn btn-primary w-100 mt-3">
+        Pay with Razorpay
+    </button>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+var options = {
+    "key": "rzp_test_123456789",   // Demo Key
+    "amount": "{{total}}00",
+    "currency": "INR",
+    "name": "Online Grocery Store",
+    "description": "Order Payment",
+    "handler": function (response){
+        alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+        window.location.href = "/orders";
+    },
+    "theme": {
+        "color": "#28a745"
+    }
+};
+
+var rzp1 = new Razorpay(options);
+
+document.getElementById('rzp-button').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+{% endblock %}
